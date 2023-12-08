@@ -1,33 +1,32 @@
 import pandas as pd
 
-# Data awal
 data = {'Nama': ['John', 'Jane', 'Bob', 'Alice'],
         'Usia': [25, 35, 30, 28],
         'Gaji': [50000, 60000, 70000, 55000]}
 
-# Membuat DataFrame
 df = pd.DataFrame(data)
 
 # Pertanyaan 1:
-# Menghitung gaji setiap karyawan setelah diberikan peningkatan sebesar 5% dari gaji saat ini
-df['Gaji'] = df['Gaji'].apply(lambda x: x * 1.05)
+# Gunakan loop for dan fungsi lambda untuk menghitung gaji setiap karyawan setelah diberikan peningkatan sebesar 5% dari gaji saat ini.
+for i in range(len(df)):
+    df.at[i, 'Gaji'] = (lambda x: x * 1.05)(df.at[i, 'Gaji'])
 
 # Pertanyaan 2:
-# Menampilkan DataFrame yang sudah diperbarui dan ringkasan perubahan
+# Setelah perubahan dilakukan, tampilkan DataFrame yang sudah diperbarui dan berikan ringkasan perubahan yang telah terjadi.
 print("DataFrame setelah peningkatan gaji 5%:")
 print(df)
-print("\nRingkasan perubahan:")
-print(df.describe())
+print()
 
 # Pertanyaan 3:
-# Evaluasi karyawan yang usianya di atas 30 tahun dan berikan peningkatan tambahan 2%
-df['Gaji'] = df.apply(lambda row: row['Gaji'] * 1.02 if row['Usia'] > 30 else row['Gaji'], axis=1)
+# Gunakan loop for lagi untuk mengevaluasi karyawan yang usianya di atas 30 tahun. Jika usia karyawan di atas 30, berikan peningkatan tambahan sebesar 2% dari gaji saat ini menggunakan fungsi lambda.
+for i in range(len(df)):
+    if df.at[i, 'Usia'] > 30:
+        df.at[i, 'Gaji'] = (lambda x: x * 1.02)(df.at[i, 'Gaji'])
 
 # Pertanyaan 4:
-# Menampilkan DataFrame yang sudah diperbarui setelah peningkatan gaji tambahan dan ringkasan hasilnya
-print("\nDataFrame setelah peningkatan gaji tambahan 2%:")
+# Tampilkan DataFrame yang sudah diperbarui setelah peningkatan gaji tambahan dan berikan ringkasan hasilnya.
+print("DataFrame setelah peningkatan gaji tambahan:")
 print(df)
-print("\nRingkasan hasil setelah peningkatan tambahan:")
+print()
+print("Ringkasan hasil:")
 print(df.describe())
-
-
