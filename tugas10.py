@@ -31,14 +31,3 @@ print("\nRingkasan hasil setelah peningkatan tambahan:")
 print(df.describe())
 
 
-# ---------------------------- #
-# Buat Branch Baru pada repository github berikut dengan format KELAS_NRP_NAMA
-# https://gitlab.com/itenas/tugas_pemdas.git
-# ---------------------------- #
-
-# Catatan:
-
-# Gunakan loop for dan fungsi lambda untuk mengimplementasikan operasi yang diminta.
-# Pastikan untuk menyimpan hasil perubahan pada DataFrame.
-# Tampilkan hasil dan ringkasan dengan jelas.
-# Jangan lupa untuk menyesuaikan persentase peningkatan gaji sesuai dengan cerita.
